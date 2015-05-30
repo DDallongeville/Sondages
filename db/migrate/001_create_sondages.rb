@@ -1,0 +1,9 @@
+class CreateSondages < ActiveRecord::Migration
+  def change
+    create_table :sondages do |t|
+      t.string :question
+      t.integer :oui
+      t.integer :non
+    end
+  end
+end

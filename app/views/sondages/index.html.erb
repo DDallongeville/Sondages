@@ -1,0 +1,11 @@
+<h2>Sondages</h2>
+<p><%= link_to 'Nouveau sondage', { :action => 'new', :id => @project[:id] } %></p>
+<% @sondages.each do |sondage| %>
+  <p>
+  <%= sondage.question %>?
+  <%= link_to 'Oui', { :action => 'vote', :id => @project[:id],:id_sondage => sondage[:id], :reponse => 'oui' }, :method => :post %> (<%= sondage.oui %>) /
+  <%= link_to 'Non', { :action => 'vote', :id => @project[:id],:id_sondage => sondage[:id], :reponse => 'non' }, :method => :post %> (<%= sondage.non %>) /
+  <%= link_to 'Editer', { :action => 'editer',:id => @project[:id], :id_sondage => sondage[:id] }, :method => :get %> /
+  <%= link_to 'Supprimer', { :action => 'supprimer',:id => @project[:id], :id_sondage => sondage[:id] }, :method => :post, data: { confirm: t('are_you_sure') }, class: 'icon icon-del' %>
+  </p>
+<% end %>

@@ -1,0 +1,7 @@
+class Sondage < ActiveRecord::Base
+  has_many :sondage_uniques
+  attr_accessible :question
+  def vote(reponse)
+    increment(reponse == 'oui' ? :oui : :non)
+  end
+end

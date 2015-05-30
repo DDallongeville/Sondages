@@ -1,0 +1,25 @@
+<h1>Editer sondage</h1>
+
+<%= form_for @sondages, :url => {:action => "update"} do |f| %>
+  <% if @sondages.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@sondages.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @sondages.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+ 
+<%= link_to 'Back', sondages_path %>
